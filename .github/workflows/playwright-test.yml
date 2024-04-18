@@ -15,9 +15,7 @@ jobs:
                   node-version: 18
             - name: Install dependencies
               run: yarn
-            - name: Install Playwright Browsers
-              run: yarn npx playwright install --with-deps
-            - name: Run Playwright tests
+            - name: Install Playwright Browsers & Run tests
               run: yarn test
             - uses: actions/upload-artifact@v4
               if: ${{ !cancelled() }}

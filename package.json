@@ -1,13 +1,14 @@
 {
-  "name": "frame",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "devDependencies": {
-    "@playwright/test": "^1.43.1",
-    "@types/node": "^20.12.7"
-  },
-  "scripts": {
-    "test" : "yarn playwright test"
-  }
+    "name": "frame",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "devDependencies": {
+        "@playwright/test": "^1.43.1",
+        "@types/node": "^20.12.7"
+    },
+    "scripts": {
+        "test": "npx playwright test",
+        "test:ci": "npx playwright install --with-deps && npx playwright test"
+    }
 }
