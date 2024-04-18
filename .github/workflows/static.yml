@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy HTML report to Page
+name: Playwright tests for WIKI
 
 on:
     # Runs on pushes targeting the default branch
@@ -25,7 +25,9 @@ concurrency:
 
 jobs:
     # Single deploy job since we're just deploying
-    test:
+    wiki_tests:
+        permissions:
+            contents: write
         timeout-minutes: 60
         runs-on: ubuntu-latest
         steps:
