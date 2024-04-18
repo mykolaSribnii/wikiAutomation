@@ -53,7 +53,7 @@ jobs:
               with:
                   node-version: 18
             - name: Install dependencies
-              run: npm ci
+              run: yarn
             - name: Set a timestamp
               id:
                   timestampid
