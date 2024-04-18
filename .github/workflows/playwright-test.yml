@@ -21,7 +21,6 @@ jobs:
               run: |
                   echo "## TEST RUN SUMMARY:" >> $GITHUB_STEP_SUMMARY
                   yarn test >> $GITHUB_STEP_SUMMARY
-                  echo "## TEST REPORT:" >> $GITHUB_STEP_SUMMARY
             - uses: actions/upload-artifact@v4
               if: ${{ !cancelled() }}
               with:
