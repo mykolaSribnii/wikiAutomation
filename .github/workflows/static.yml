@@ -51,7 +51,7 @@ jobs:
         permissions:
             contents: write
         steps:
-            - uses: actions/checkout@v3s
+            - uses: actions/checkout@v3
             - name: Download artifacts
               run: |
                   echo "Downloading the artifacts"
