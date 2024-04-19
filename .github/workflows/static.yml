@@ -21,6 +21,8 @@ jobs:
     wiki_tests:
         timeout-minutes: 60
         runs-on: ubuntu-latest
+        container:
+            image: mcr.microsoft.com/playwright:v1.43.1-jammy
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
@@ -49,13 +51,8 @@ jobs:
         permissions:
             contents: write
         steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 18
-            - name: Install dependencies
-              run: yarn
-            - name: Run Playwright tests
+            - uses: actions/checkout@v3s
+            - name: Download artifacts
               run: |
                   echo "Downloading the artifacts"
             - uses: actions/download-artifact@v4
@@ -66,9 +63,10 @@ jobs:
                   retention-days: 1
             - name: Display structure of downloaded files
               run: ls -R
-            - name: Check files
-              run: |
-                  ls -la
+            - name: Checkout in test results folder
+              run: cd test-results
+            - name: Display structure of test-results files
+              run: ls -R
             - name: Set a timestamp
               id:
                   timestampid
@@ -78,7 +76,7 @@ jobs:
               uses: peaceiris/actions-gh-pages@v4
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: /home/runner/work/wikiAutomation/test-results
+                  publish_dir: ./
                   destination_dir: ${{ steps.timestampid.outputs.timestamp }}
             - name: Write URL in summary
               run: echo "### Test results - https://${{ github.repository_owner }}.github.io/wikiAutomation/${{ steps.timestampid.outputs.timestamp }}/" >> $GITHUB_STEP_SUMMARY
