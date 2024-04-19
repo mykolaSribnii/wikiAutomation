@@ -21,7 +21,7 @@ export default defineConfig({
         },
 
         {
-            name: 'firexox',
+            name: 'firefox',
             use: { ...devices['Desktop Firefox'] },
         },
     ],
