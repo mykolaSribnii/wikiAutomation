@@ -39,8 +39,8 @@ jobs:
             - uses: actions/upload-artifact@v4
               if: ${{ !cancelled() }}
               with:
-                  name: test-results
-                  path: test-results/
+                  name: playwright-report
+                  path: playwright-report/
                   retention-days: 30
     deploy_results:
         if: always()
@@ -58,15 +58,15 @@ jobs:
             - uses: actions/download-artifact@v4
               if: ${{ !cancelled() }}
               with:
-                  name: test-results
-                  path: test-results/
+                  name: playwright-report
+                  path: playwright-report/
                   retention-days: 1
             - name: Display structure of downloaded files
               run: ls -R
             - name: Checkout in test results folder
-              run: cd test-results
+              run: cd playwright-report
             - name: Display structure of test-results files
-              run: ls -R
+              run: ls -A
             - name: Set a timestamp
               id:
                   timestampid
