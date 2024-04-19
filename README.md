@@ -10,3 +10,7 @@ This framework was created to cover the important functionality of wiki page.
 | Search              | User should be able to find article according to request |
 | Create account link | User should be redirected to create account page         |
 | Log in link         | User should be redirected to login page                  |
+
+# Watch reports of test runs
+
+This framework was created to cover the important functionality of wiki page.
