@@ -51,7 +51,7 @@ jobs:
         permissions:
             contents: write
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - name: Download artifacts
               run: |
                   echo "Downloading the artifacts"
@@ -60,10 +60,6 @@ jobs:
               with:
                   name: playwright-report
                   path: playwright-report/
-            - name: Display structure of downloaded files
-              run: ls -R
-            - name: Checkout in test results folder
-              run: cd playwright-report
             - name: Display structure of test-results files
               run: ls -A
             - name: Set a timestamp
@@ -75,7 +71,7 @@ jobs:
               uses: peaceiris/actions-gh-pages@v4
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./
+                  publish_dir: ./playwright-report
                   destination_dir: ${{ steps.timestampid.outputs.timestamp }}
             - name: Write URL in summary
               run: echo "### Test results - https://${{ github.repository_owner }}.github.io/wikiAutomation/${{ steps.timestampid.outputs.timestamp }}/" >> $GITHUB_STEP_SUMMARY
