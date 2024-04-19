@@ -78,7 +78,7 @@ jobs:
               uses: peaceiris/actions-gh-pages@v4
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: /home/runner/work/wikiAutomation/test-results/
+                  publish_dir: /home/runner/work/wikiAutomation/test-results
                   destination_dir: ${{ steps.timestampid.outputs.timestamp }}
             - name: Write URL in summary
               run: echo "### Test results - https://${{ github.repository_owner }}.github.io/wikiAutomation/${{ steps.timestampid.outputs.timestamp }}/" >> $GITHUB_STEP_SUMMARY
