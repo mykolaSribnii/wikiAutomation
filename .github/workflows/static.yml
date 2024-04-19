@@ -60,7 +60,6 @@ jobs:
               with:
                   name: playwright-report
                   path: playwright-report/
-                  retention-days: 1
             - name: Display structure of downloaded files
               run: ls -R
             - name: Checkout in test results folder
