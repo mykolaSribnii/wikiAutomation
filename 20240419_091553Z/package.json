@@ -1,0 +1,17 @@
+{
+    "name": "frame",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "devDependencies": {
+        "@playwright/test": "^1.43.1",
+        "@types/node": "^20.12.7"
+    },
+    "scripts": {
+        "test": "npx playwright test",
+        "install:browsers": "npx playwright install chromium --with-deps"
+    },
+    "dependencies": {
+        "@actions/core": "^1.10.1"
+    }
+}
