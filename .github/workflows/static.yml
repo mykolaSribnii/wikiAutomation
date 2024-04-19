@@ -30,8 +30,8 @@ jobs:
                   node-version: 18
             - name: Install dependencies
               run: yarn
-            - name: Install Playwright Browsers
-              run: yarn install:browsers
+            # - name: Install Playwright Browsers
+            #   run: yarn install:browsers
             - name: Run Playwright tests
               run: |
                   echo "## TEST RUN SUMMARY:" >> $GITHUB_STEP_SUMMARY
