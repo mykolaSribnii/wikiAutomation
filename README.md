@@ -13,4 +13,8 @@ This framework was created to cover the important functionality of wiki page.
 
 # Watch reports of test runs
 
-This framework was created to cover the important functionality of wiki page.
+Please, navigate to "Actions" => Select the Playwright tests for WIKI workflow and start it.
+
+When the workflow will be finished - the link to report will be automatically generated in the summary.
+
+Thanks <3
