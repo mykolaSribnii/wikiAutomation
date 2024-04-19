@@ -60,7 +60,7 @@ jobs:
               if: ${{ !cancelled() }}
               with:
                   name: playwright-report
-                  path: playwright-report/
+                  path: downloaded-playwright-report
             - name: Display structure of test-results files
               run: |
                   find src
@@ -69,6 +69,6 @@ jobs:
               uses: peaceiris/actions-gh-pages@v4
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: playwright-report
+                  publish_dir: downloaded-playwright-report
             - name: Write URL in summary
               run: echo "### Test results - https://${{ github.repository_owner }}.github.io/wikiAutomation/" >> $GITHUB_STEP_SUMMARY
