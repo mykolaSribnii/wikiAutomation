@@ -30,8 +30,6 @@ jobs:
                   node-version: 18
             - name: Install dependencies
               run: yarn
-            # - name: Install Playwright Browsers
-            #   run: yarn install:browsers
             - name: Run Playwright tests
               run: |
                   echo "## TEST RUN SUMMARY:" >> $GITHUB_STEP_SUMMARY
@@ -45,8 +43,6 @@ jobs:
     deploy_results:
         if: always()
         needs: [wiki_tests]
-        outputs:
-            timestamp: ${{ steps.timestampid.outputs.timestamp }}
         runs-on: ubuntu-latest
         permissions:
             contents: write
@@ -63,17 +59,12 @@ jobs:
             - name: Display structure of test-results files
               run: |
                   ls -la
-                  cd ./playwright-report
-                  ls -la
-            - name: Set a timestamp
-              id:
-                  timestampid
-                  # this will store current time with UTC in outputs.timestamp (eg of value: 20231028_233147Z)
-              run: echo "timestamp=$(date --utc +%Y%m%d_%H%M%SZ)" >> "$GITHUB_OUTPUT"
+                  # cd ./playwright-report
+                  # ls -la
             - name: Deploy the playwright report
               uses: peaceiris/actions-gh-pages@v4
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./playwright-report
+                  publish_dir: ./
             - name: Write URL in summary
-              run: echo "### Test results - https://${{ github.repository_owner }}.github.io/wikiAutomation/${{ steps.timestampid.outputs.timestamp }}/" >> $GITHUB_STEP_SUMMARY
+              run: echo "### Test results - https://${{ github.repository_owner }}.github.io/wikiAutomation/" >> $GITHUB_STEP_SUMMARY
