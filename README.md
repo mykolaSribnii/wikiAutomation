@@ -3,15 +3,21 @@
 This framework was created to cover the important functionality of the wiki page.
 
 ## Structure
--- GitHub/workflows 
-   -> Store the main logic to launch tests in the CI/CD environment.
-   -> Contains custom steps to generate live reports in Github Pages.
---src/ 
-   - data/ -> contains objects with the test data for the data-driven tests 
-   - fixtures/ -> used to initiate pages in one place and avoid declarations in the tests
-   - pages/ -> folder to store the POM implementation, main idea is to use a MainPage as a manager to other pages.
-   - tests/ -> contain tests suites split by logic functionality
--- playwright.config.ts / -> source of a global test configuring, using to create projects and etc.
+___ GitHub/workflows 
+Purpose:
+   - Store the main logic to launch tests in the CI/CD environment.
+   - Contains custom steps to generate live reports on Github Pages.
+
+___ src/ 
+Purpose: 
+ - Contain the main logic for testing INFRA
+
+_______ data/ -> contains objects with the test data for the data-driven tests 
+________ fixtures/ -> used to initiate pages in one place and avoid declarations in the tests
+____________ pages/ -> folder to store the POM implementation, main idea is to use a MainPage as a manager to other pages.
+______________ tests/ -> contain test suites split by logic functionality
+
+___ playwright.config.ts / -> source of a global test configuring, used to create projects etc.
 
 
 ## Main test cases list:
