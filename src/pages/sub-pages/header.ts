@@ -15,7 +15,7 @@ export class Header {
     public async search(props: { searchKey: string }) {
         const searchButton = this.page.getByRole('button', { name: 'Search', exact: true });
 
-        await this.page.locator(searchField).waitFor();
+        await this.page.locator(searchField).first().waitFor();
         await this.page.locator(searchField).fill(props.searchKey);
         await searchButton.click();
         await this.page.waitForLoadState();
